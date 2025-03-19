@@ -9,13 +9,13 @@ if(!window.contentScriptInjected) {
     
     // Header with app name
     const header = document.createElement("div");
-    header.classList.add("header");
+    header.classList.add("uhd-extension-header");
     
     const headerContent = document.createElement("div");
-    headerContent.classList.add("header-content");
+    headerContent.classList.add("uhd-extension-header-content");
     
     const headerIcon = document.createElement("div");
-    headerIcon.classList.add("header-icon");
+    headerIcon.classList.add("uhd-extension-header-icon");
     headerIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="currentColor">
       <path d="M0 0h24v24H0z" fill="none"/>
       <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
@@ -36,10 +36,10 @@ if(!window.contentScriptInjected) {
     
     // Magnification slider
     const sliderContainer = document.createElement("div");
-    sliderContainer.classList.add("slider-container");
+    sliderContainer.classList.add("uhd-extension-slider-container");
     
     const sliderLabel = document.createElement("div");
-    sliderLabel.classList.add("slider-label");
+    sliderLabel.classList.add("uhd-extension-slider-label");
     
     const sliderLabelText = document.createElement("span");
     sliderLabelText.innerText = "Magnification";
@@ -53,14 +53,14 @@ if(!window.contentScriptInjected) {
     
     // Create custom slider
     const customSlider = document.createElement("div");
-    customSlider.classList.add("custom-slider");
+    customSlider.classList.add("uhd-extension-custom-slider");
     
     const sliderFill = document.createElement("div");
-    sliderFill.classList.add("slider-fill");
+    sliderFill.classList.add("uhd-extension-slider-fill");
     sliderFill.style.width = "0%"; // Will be updated on init
     
     const sliderThumb = document.createElement("div");
-    sliderThumb.classList.add("slider-thumb");
+    sliderThumb.classList.add("uhd-extension-slider-thumb");
     sliderThumb.style.left = "0%"; // Will be updated on init
     
     const slider = document.createElement("input");
@@ -117,20 +117,20 @@ if(!window.contentScriptInjected) {
     
     // Magnification presets
     const presetContainer = document.createElement("div");
-    presetContainer.classList.add("preset-container");
+    presetContainer.classList.add("uhd-extension-preset-container");
     
     const presetLabel = document.createElement("div");
-    presetLabel.classList.add("preset-label");
+    presetLabel.classList.add("uhd-extension-preset-label");
     presetLabel.innerText = "Quick presets";
     
     const presetButtons = document.createElement("div");
-    presetButtons.classList.add("preset-buttons");
+    presetButtons.classList.add("uhd-extension-preset-buttons");
     
     let activePresetBtn = null;
     const presets = [5, 10, 15, 20];
     presets.forEach(preset => {
       const presetBtn = document.createElement("button");
-      presetBtn.classList.add("preset-btn");
+      presetBtn.classList.add("uhd-extension-preset-btn");
       presetBtn.innerText = preset + "x";
       
       // Mark the default preset button as active
@@ -166,24 +166,24 @@ if(!window.contentScriptInjected) {
     const startBtn = document.createElement("button");
     startBtn.setAttribute("id", "startScreenshotButton");
     startBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 3L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-3.17L15 3H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><circle cx="12" cy="13" r="3.5"/></svg><span>Capture Screenshot</span>';
-    startBtn.classList.add("primary-btn", "ripple");
+    startBtn.classList.add("uhd-extension-primary-btn", "uhd-extension-ripple");
     
     // Cancel button
     const cancelBtn = document.createElement("button");
     cancelBtn.setAttribute("id", "cancelButton");
     cancelBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 0 24 24" width="18" fill="currentColor"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg><span>Cancel</span>';
-    cancelBtn.classList.add("secondary-btn", "ripple");
+    cancelBtn.classList.add("uhd-extension-secondary-btn", "uhd-extension-ripple");
     
     // Button container
     const buttonContainer = document.createElement("div");
-    buttonContainer.classList.add("button-container");
+    buttonContainer.classList.add("uhd-extension-button-container");
     buttonContainer.appendChild(startBtn);
     buttonContainer.appendChild(cancelBtn);
     
     // Instruction text with icon
     const instructionText = document.createElement("div");
     instructionText.setAttribute("id", "emailText");
-    instructionText.classList.add("instruction-text");
+    instructionText.classList.add("uhd-extension-instruction-text");
     instructionText.innerHTML = '<span>Click <strong>Capture Screenshot</strong> and select the area</span>';
     
     // CSS styling
@@ -238,7 +238,7 @@ if(!window.contentScriptInjected) {
           border: 1px solid #DFE4E4;
       }
       
-      .header {
+      .uhd-extension-header {
           background: var(--teal-medium);
           background: linear-gradient(135deg, var(--teal-medium) 0%, #7DB5B1 100%);
           padding: 24px 20px;
@@ -248,7 +248,7 @@ if(!window.contentScriptInjected) {
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       }
       
-      .header::before {
+      .uhd-extension-header::before {
           content: '';
           position: absolute;
           top: -50%;
@@ -259,7 +259,7 @@ if(!window.contentScriptInjected) {
           pointer-events: none;
       }
       
-      .header-content {
+      .uhd-extension-header-content {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -267,7 +267,7 @@ if(!window.contentScriptInjected) {
           z-index: 1;
       }
       
-      .header-icon {
+      .uhd-extension-header-icon {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -277,7 +277,7 @@ if(!window.contentScriptInjected) {
           color: var(--bright-blue);
       }
       
-      .header h1 {
+      .uhd-extension-header h1 {
           font-size: 22px;
           font-weight: 600;
           margin: 0;
@@ -292,13 +292,13 @@ if(!window.contentScriptInjected) {
           padding: 22px 20px;
       }
 
-      .slider-container {
+      .uhd-extension-slider-container {
           display: flex;
           flex-direction: column;
           gap: 16px;
       }
 
-      .slider-label {
+      .uhd-extension-slider-label {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -316,7 +316,7 @@ if(!window.contentScriptInjected) {
           font-size: 13px;
       }
       
-      .custom-slider {
+      .uhd-extension-custom-slider {
           position: relative;
           height: 14px;
           width: 100%;
@@ -325,7 +325,7 @@ if(!window.contentScriptInjected) {
           margin: 10px 0;
       }
       
-      .slider-fill {
+      .uhd-extension-slider-fill {
           position: absolute;
           height: 100%;
           left: 0;
@@ -335,7 +335,7 @@ if(!window.contentScriptInjected) {
           pointer-events: none;
       }
       
-      .slider-thumb {
+      .uhd-extension-slider-thumb {
           width: 26px;
           height: 26px;
           position: absolute;
@@ -348,7 +348,7 @@ if(!window.contentScriptInjected) {
           z-index: 2;
       }
       
-      .slider-thumb:hover {
+      .uhd-extension-slider-thumb:hover {
           background-color: #067b8e;
           transform: translate(-50%, -50%) scale(1.05);
       }
@@ -365,25 +365,25 @@ if(!window.contentScriptInjected) {
           margin: 0;
       }
 
-      .preset-container {
+      .uhd-extension-preset-container {
           margin-top: 10px;
           margin-bottom: 24px;
       }
       
-      .preset-label {
+      .uhd-extension-preset-label {
           margin-bottom: 12px;
           font-size: 14px;
           font-weight: 500;
           color: var(--text-dark);
       }
       
-      .preset-buttons {
+      .uhd-extension-preset-buttons {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 10px;
       }
       
-      .preset-btn {
+      .uhd-extension-preset-btn {
           background-color: #E7EDED;
           border: none;
           color: var(--text-medium);
@@ -399,33 +399,33 @@ if(!window.contentScriptInjected) {
           justify-content: center;
       }
       
-      .preset-btn:hover {
+      .uhd-extension-preset-btn:hover {
           background-color: var(--orange-medium);
           color: white;
       }
       
-      .preset-btn.active {
+      .uhd-extension-preset-btn.active {
           background-color: var(--orange-light);
           color: var(--text-dark);
       }
 
-      .button-container {
+      .uhd-extension-button-container {
           display: flex;
           gap: 14px;
           margin-top: 20px;
       }
       
-      .button-container button {
+      .uhd-extension-button-container button {
           display: flex;
           align-items: center;
           justify-content: center;
       }
       
-      .button-container .primary-btn {
+      .uhd-extension-button-container .uhd-extension-primary-btn {
           flex: 2;
       }
       
-      .button-container .secondary-btn {
+      .uhd-extension-button-container .uhd-extension-secondary-btn {
           flex: 1;
       }
       
@@ -453,7 +453,7 @@ if(!window.contentScriptInjected) {
           top: -1px;
       }
 
-      .ripple::after {
+      .uhd-extension-ripple::after {
           content: '';
           position: absolute;
           top: 50%;
@@ -467,40 +467,40 @@ if(!window.contentScriptInjected) {
           transition: width 0.3s, height 0.3s, opacity 0.3s;
       }
 
-      .ripple:active::after {
+      .uhd-extension-ripple:active::after {
           width: 200px;
           height: 200px;
           opacity: 1;
           transition: 0s;
       }
 
-      .primary-btn {
+      .uhd-extension-primary-btn {
           background-color: var(--orange-medium);
           color: white;
       }
 
-      .primary-btn:hover {
+      .uhd-extension-primary-btn:hover {
           background-color: #BC7E6E;
           transform: translateY(-1px);
           box-shadow: 0 2px 8px rgba(211, 153, 135, 0.4);
       }
 
-      .primary-btn:active {
+      .uhd-extension-primary-btn:active {
           transform: translateY(0);
           box-shadow: 0 1px 4px rgba(211, 153, 135, 0.3);
       }
 
-      .secondary-btn {
+      .uhd-extension-secondary-btn {
           background-color: #E7EDED;
           color: var(--text-medium);
       }
 
-      .secondary-btn:hover {
+      .uhd-extension-secondary-btn:hover {
           background-color: #D3D8D8;
           transform: translateY(-1px);
       }
 
-      .secondary-btn:active {
+      .uhd-extension-secondary-btn:active {
           transform: translateY(0);
       }
 
@@ -519,13 +519,13 @@ if(!window.contentScriptInjected) {
           border-top: 1px solid #DFE4E4;
       }
       
-      .instruction-text {
+      .uhd-extension-instruction-text {
           display: flex;
           align-items: center;
           gap: 8px;
       }
       
-      .instruction-text svg {
+      .uhd-extension-instruction-text svg {
           flex-shrink: 0;
           color: var(--teal-medium);
       }

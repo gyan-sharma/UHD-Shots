@@ -4,7 +4,7 @@
   "manifest_version": 3,
   "name": "High DPI Screenshots",
   "description": "Now take High DPI Screenshots with precise magnification control",
-  "version": "1.0",
+  "version": "1.1",
   "action": {
     "default_icon": "icon.png"
   },

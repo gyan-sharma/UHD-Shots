@@ -40,7 +40,7 @@
         text-align: center;
       }
       
-      .header {
+      .uhd-extension-header {
         background: var(--teal-medium);
         background: linear-gradient(135deg, var(--teal-medium) 0%, #7DB5B1 100%);
         padding: 24px 20px;
@@ -50,7 +50,7 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       }
       
-      .header::before {
+      .uhd-extension-header::before {
         content: '';
         position: absolute;
         top: -50%;
@@ -61,7 +61,7 @@
         pointer-events: none;
       }
       
-      .header-content {
+      .uhd-extension-header-content {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -69,7 +69,7 @@
         z-index: 1;
       }
       
-      .header-icon {
+      .uhd-extension-header-icon {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -94,7 +94,7 @@
         color: var(--text-medium);
       }
       
-      .icon {
+      .uhd-extension-icon {
         display: block;
         width: 64px;
         height: 64px;
@@ -106,13 +106,13 @@
         justify-content: center;
       }
       
-      .icon svg {
+      .uhd-extension-icon svg {
         width: 36px;
         height: 36px;
         fill: white;
       }
       
-      .button {
+      .uhd-extension-button {
         display: inline-block;
         background-color: var(--teal-medium);
         color: white;
@@ -124,7 +124,7 @@
         transition: all 0.2s ease;
       }
       
-      .button:hover {
+      .uhd-extension-button:hover {
         background-color: #7EB7B3;
         transform: translateY(-1px);
         box-shadow: 0 2px 8px rgba(144, 196, 193, 0.4);
@@ -133,9 +133,9 @@
   </head>
   <body>
     <div class="error-container">
-      <div class="header">
-        <div class="header-content">
-          <div class="header-icon">
+      <div class="uhd-extension-header">
+        <div class="uhd-extension-header-content">
+          <div class="uhd-extension-header-icon">
             <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" fill="currentColor">
               <path d="M0 0h24v24H0z" fill="none"/>
               <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
@@ -145,14 +145,14 @@
         </div>
       </div>
       <div id="debug">
-        <div class="icon">
+        <div class="uhd-extension-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
           </svg>
         </div>
         <p>Unfortunately, Chrome does not allow extensions access to Chrome Web Store pages and chrome:// URLs.</p>
         <p>Please try using the extension on a different page.</p>
-        <a href="javascript:history.back()" class="button">Go Back</a>
+        <a href="javascript:history.back()" class="uhd-extension-button">Go Back</a>
       </div>
     </div>
   </body>
