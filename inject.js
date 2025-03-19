@@ -686,7 +686,7 @@ if(!window.contentScriptInjected) {
           
           labelDiv.style.bottom = 5 + l + "px";
           labelDiv.style.left = e + 5 + "px";
-          labelDiv.innerHTML = `<span style="color: #1E5B9B; font-weight: 500;">Visible:</span> <span style="color: #1E5B9B;">${(e * i).toFixed(0)} × ${(l * i).toFixed(0)}</span><br><span style="color: #1E5B9B; font-weight: 500;">Output:</span> <span style="color: #1E5B9B;">${o * i} × ${n * i}</span>`;
+          labelDiv.innerHTML = `<span style="color: #1E5B9B; font-weight: 500;">Visible:</span> <span style="color: #1E5B9B;">${Math.round(e * i)} × ${Math.round(l * i)}</span><br><span style="color: #1E5B9B; font-weight: 500;">Output:</span> <span style="color: #1E5B9B;">${Math.round(o * i)} × ${Math.round(n * i)}</span>`;
         }
       };
       
